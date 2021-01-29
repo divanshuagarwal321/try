@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const Admin = require('../models/admin.model')
 const controllers = require('../controllers/admin.controllers')
 
 router.get('/add', controllers.add)

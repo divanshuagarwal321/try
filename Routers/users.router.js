@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const controller = require('../controllers/users.controllers')
+const Admin = require('../models/admin.model')
 // import controller from '../controllers/users.controllers'
 const {
     user
@@ -7,7 +8,7 @@ const {
 
 
 router.get('/', controller.users)
-router.get('/list', controller.list)
+router.post('/list', controller.list)
 router.get('/signUp', controller.signUp)
 router.get('/logIn', user, controller.logIn)
 router.get('/describe', user, controller.describe)

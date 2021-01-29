@@ -11,10 +11,18 @@ const users = (req, res) => {
 
 // @@api: http://localhost:3000/users/list
 const list = (req, res) => {
+    console.log(req.sparshi)
+    const _b = req.body
+    console.log(_b)
+
+    console.log(req.header('Authorization').replace('Bearer ', ""))
     res.status(200).json({
         user: data.users,
         tokens: data.tokens
     })
+
+    // List all users. Token from AUTHORIZATION, admin auth.
+    // FindAll
 }
 
 // @@api: http://localhost:3000/users/signUp
@@ -23,6 +31,10 @@ const signUp = (req, res) => {
     res.status(200).json(
         addedUser
     )
+
+    // Add an user. data from POST body
+    // create
+    // token attach, -> response
 }
 
 // @@api: http://localhost:3000/users/logIn
@@ -33,6 +45,8 @@ const logIn = (req, res) => {
     res.status(200).json(
         user
     )
+
+    // user token -> Bearer token in authorization
 }
 
 // @@api: http://localhost:3000/users/describe
@@ -43,6 +57,17 @@ const describe = (req, res) => {
     res.status(200).json(
         obj
     )
+
+    // FindOne user from Token
+    // take it's Id
+    // Find All tasks from that Id
+    // {
+    //     id: "",
+    //     email: "",
+    //     password: "",
+    //     createdAt: "",
+    //     tasks: []
+    // }
 }
 
 // @@api: http://localhost:3000/users/delete
@@ -57,6 +82,10 @@ const destroy = (req, res) => {
     )
 
     userData.deleteUser(user, token)
+
+    // destroy using token
+    // req.user.id
+    // destroy query
 }
 
 // @@api: http://localhost:3000/users/update
@@ -67,6 +96,8 @@ const update = (req, res) => {
     const obj = userData.updateUser(user)
 
     res.status(200).json(obj)
+
+    // PATCH request
 }
 
 module.exports = {
