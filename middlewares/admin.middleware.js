@@ -11,6 +11,23 @@ function adminAuth(req, res, next) {
     let user = userData.findUser(id)
     req.user = user
 
+    // return User.findOne({
+    //     where: {
+    //         id: decoded.id
+    //     }
+    // })
+    // .then((user) => {
+    //     if (user == null) throw new Error('No user found')
+
+    //     req.user = user
+
+    //     next()
+    // })
+    // .catch(e => {
+    //     res.json({error : e.message})
+    //     // Status code google krna
+    // })
+
     return typeof user.id === "number" ? next() : res.send("no user found")
 
 }

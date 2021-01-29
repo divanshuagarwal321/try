@@ -12,6 +12,29 @@ module.exports = {
         }
     },
     secrets: {
-        jwt: "verySeuredKey"
-    }
+        jwt: process.env.JWT_KEY_DEV
+    },
+    db: {
+        name: "todo",
+        cred: {
+          username: "root",
+          password: "root",
+        },
+        host: "localhost",
+        define: {
+          charset: "utf8mb4",
+          collate: "utf8mb4_general_ci",
+        },
+        dialect: "mysql",
+        pool: {
+          max: 5,
+          min: 0,
+          acquire: 300000,
+          idle: 10000,
+        },
+        logging: console.log,
+        // logging: false,
+        port: 3306
+        // name: online-order-dev
+      },
 }

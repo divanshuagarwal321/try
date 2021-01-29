@@ -5,6 +5,9 @@ const entries = require('../config/development')
 // encode - user id pass krega parameter
 
 const decode = (token) => {
+    // replace Bearer string
+    // take token
+    // retrun verify
     return jwt.verify(token, entries.secrets.jwt)
 }
 

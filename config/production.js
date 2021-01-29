@@ -1,5 +1,5 @@
 module.exports = {
-    port: 4000,
+    port: process.env.PORT_PROD,
     data: {
         users: {
             names: ['divanshu', 'shobhit', 'sparshi', 'shradha', 'ram', 'shyam', 'raju', 'mohan', 'sohan', 'rohan', 'abdul', 'birju', 'hari', 'chintu', 'pintu', 'golu', 'bheem', 'motu', 'patlu', 'nobita'],
@@ -12,6 +12,6 @@ module.exports = {
         }
     },
     secrets: {
-        jwt: "verySeuredKey"
+        jwt: process.env.JWT_KEY_PROD
     }
 }
