@@ -133,19 +133,19 @@ sequelizeMethods
         //     .then(console.log)
         //     .catch(console.error)
 
-        // await Admin.findAll({
-        //     where: {
-        //         createdAt: {
-        //             [Sequelize.Op.lte]: 1611947307475
-        //         }
-        //     }
-        // })
-        //     .then((admins) => {
-        //         for (let admin of admins) {
-        //             console.log(admin.toJSON())
-        //         }
-        //     })
-        //     .catch(console.error)
+        await Admin.findAll({
+            where: {
+                createdAt: {
+                    [Sequelize.Op.lte]: 1611947307475
+                }
+            }
+        })
+            .then((admins) => {
+                for (let admin of admins) {
+                    console.log(admin.toJSON())
+                }
+            })
+            .catch(console.error)
 
 
     })
