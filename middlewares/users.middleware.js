@@ -1,4 +1,3 @@
-const userData = require('../data/users.data')
 const webTokens = require('../services/auth')
 
 function user(req, res, next) {

@@ -1,6 +1,6 @@
-const userData = require('../data/users.data')
-const data = require('../data/data')
 const webTokens = require('../services/auth')
+const Users = require('../models/users.model')
+const Sequelize = require('sequelize')
 
 // @@api: http://localhost:3000/users
 const users = (req, res) => {
@@ -11,10 +11,10 @@ const users = (req, res) => {
 
 // @@api: http://localhost:3000/users/list
 const list = (req, res) => {
-    console.log(req.sparshi)
-    const _b = req.body
-    console.log(_b)
-
+    // console.log(req.sparshi)
+    // const _b = req.body
+    // console.log(_b)
+    console.log(req.header('Authorization'))
     console.log(req.header('Authorization').replace('Bearer ', ""))
     res.status(200).json({
         user: data.users,
@@ -26,10 +26,23 @@ const list = (req, res) => {
 }
 
 // @@api: http://localhost:3000/users/signUp
-const signUp = (req, res) => {
-    const addedUser = userData.add();
+const signUp = async (req, res) => {
+    const _b = req.body
+    console.log(_b)
+
+    let addedUser = await Users.create({
+        email: _b.email,
+        password: _b.password,
+        name: _b.name,
+        age: _b.age
+
+    })
+    let newUser = addedUser.toJSON()
+    let token = webTokens.encode(newUser.id)
+    newUser.token = token
+    console.log(newUser)
     res.status(200).json(
-        addedUser
+        newUser
     )
 
     // Add an user. data from POST body

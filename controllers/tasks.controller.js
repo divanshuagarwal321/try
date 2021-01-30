@@ -1,5 +1,3 @@
-const taskData = require('../data/tasks.data')
-const userFn = require('../data/users.data')
 
 // @@api: http://localhost:3000/tasks/
 const tasks = (req, res) => {

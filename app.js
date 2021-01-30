@@ -31,27 +31,7 @@ app.use((req, res, next) => {
     next()
 })
 
-const populate = () => {
-    const userData = require('./data/users.data')
-    const taskData = require('./data/tasks.data')
-    const adminData = require('./data/admin.data')
 
-    userData.add()
-    userData.add()
-    userData.add()
-    userData.add()
-
-    taskData.addTask()
-    taskData.addTask()
-    taskData.addTask()
-
-    adminData.findOrCreate('divanshu@todo.com', 'divanshu')
-    adminData.findOrCreate('divanshu@todo.com', 'divanshu')
-    adminData.findOrCreate('divanshu@todo.com', 'divanshu')
-
-
-}
-populate()
 
 
 sequelizeMethods
@@ -133,19 +113,19 @@ sequelizeMethods
         //     .then(console.log)
         //     .catch(console.error)
 
-        await Admin.findAll({
-            where: {
-                createdAt: {
-                    [Sequelize.Op.lte]: 1611947307475
-                }
-            }
-        })
-            .then((admins) => {
-                for (let admin of admins) {
-                    console.log(admin.toJSON())
-                }
-            })
-            .catch(console.error)
+        // await Admin.findAll({
+        //     where: {
+        //         createdAt: {
+        //             [Sequelize.Op.lte]: 1611947307475
+        //         }
+        //     }
+        // })
+        //     .then((admins) => {
+        //         for (let admin of admins) {
+        //             console.log(admin.toJSON())
+        //         }
+        //     })
+        //     .catch(console.error)
 
 
     })
