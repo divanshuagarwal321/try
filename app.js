@@ -31,27 +31,7 @@ app.use((req, res, next) => {
     next()
 })
 
-const populate = () => {
-    const userData = require('./data/users.data')
-    const taskData = require('./data/tasks.data')
-    const adminData = require('./data/admin.data')
 
-    userData.add()
-    userData.add()
-    userData.add()
-    userData.add()
-
-    taskData.addTask()
-    taskData.addTask()
-    taskData.addTask()
-
-    adminData.findOrCreate('divanshu@todo.com', 'divanshu')
-    adminData.findOrCreate('divanshu@todo.com', 'divanshu')
-    adminData.findOrCreate('divanshu@todo.com', 'divanshu')
-
-
-}
-populate()
 
 
 sequelizeMethods

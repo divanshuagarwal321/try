@@ -1,5 +1,5 @@
 module.exports = {
-    port: process.env.PORT,
+    port: process.env.PORT_DEV,
     data: {
         users: {
             names: ['divanshu', 'shobhit', 'sparshi', 'shradha', 'ram', 'shyam', 'raju', 'mohan', 'sohan', 'rohan', 'abdul', 'birju', 'hari', 'chintu', 'pintu', 'golu', 'bheem', 'motu', 'patlu', 'nobita'],
@@ -18,7 +18,7 @@ module.exports = {
         name: "todo",
         cred: {
           username: "root",
-          password: "root",
+          password: "mysql",
         },
         host: "localhost",
         define: {

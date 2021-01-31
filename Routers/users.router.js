@@ -8,8 +8,8 @@ const {
 
 
 router.get('/', controller.users)
-router.post('/list', controller.list)
-router.get('/signUp', controller.signUp)
+router.get('/list', controller.list)
+router.post('/signUp', controller.signUp)
 router.get('/logIn', user, controller.logIn)
 router.get('/describe', user, controller.describe)
 router.get('/delete', user, controller.destroy)
